@@ -1,18 +1,24 @@
 ---
 import '../styles/global.css';
+import {name_user} from '../constants'
 
-const nomeUsuario = import.meta.env.PUBLIC_NAME_USER;
+import '@fontsource/arvo/400.css';
+import '@fontsource/arvo/700.css';
+import '@fontsource/pt-sans/400.css';
+import '@fontsource/pt-sans/700.css';
+
 ---
 
 <!doctype html>
 <html lang="pt-br">
 	<head>
 		<meta charset="UTF-8" />
-		<meta name="viewport" content="width=device-width" />
+		<meta name="viewport" content="width=device-width" /> 
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} /> -->
-		<title>{nomeUsuario}</title>
+		<title>{name_user}</title>
 	</head>
 	<body>
+		<slot />
 	</body>
 </html>

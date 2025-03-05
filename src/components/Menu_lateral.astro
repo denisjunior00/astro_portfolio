@@ -1,5 +1,19 @@
 ---
-const nomeUsuario = import.meta.env.PUBLIC_NAME_USER;
+import {name_user} from '../constants'
+import ImagePerfil from './Image_perfil.astro'
+import Icons_contact from './Icons_contact.astro'
 ---
 
-<t1 class="font_title" >{nomeUsuario}</t1>
+<div>    
+    <div>
+        <ImagePerfil size="small"/>
+        <t1 class="font_title" >{name_user}</t1>
+    </div>    
+    <div>
+        <a href="/">Home</a>
+        <a href="/sobre">Sobre</a>
+        <a href="/cv">CV</a>
+        <a href="/contato">Contato</a>
+    </div>
+    <Icons_contact />
+</div>

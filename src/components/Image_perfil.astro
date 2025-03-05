@@ -1,0 +1,23 @@
+---
+import { Image } from 'astro:assets';
+import perfil from '../images/perfil.jpg';
+
+// Define a interface para as props do componente
+export interface Props {
+  size?: 'small' | 'large';
+}
+
+// Se não for passado, o tamanho padrão é 'small'
+const { size = 'small' } = Astro.props;
+
+// Define as classes de dimensão com base na prop 'size'
+const dimensions =
+  size === 'small' ? 'w-[176px] h-[176px]' : 'w-[288px] h-[288px]';
+---
+<div class={`overflow-hidden rounded-full ${dimensions}`}>
+  <Image 
+    src={perfil} 
+    alt="Perfil" 
+    class="object-cover w-full h-full" 
+  />
+</div>
