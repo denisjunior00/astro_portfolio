@@ -1,0 +1,80 @@
+---
+// NightSky.astro
+---
+<canvas 
+  id="night-sky" 
+  class="block fixed top-0 left-0 w-full h-full" 
+  style="z-index: -1;"
+></canvas>
+
+<script is:inline>
+  // Seleciona o canvas e configura o contexto 2D
+  const canvas = document.getElementById("night-sky");
+  const ctx = canvas.getContext("2d");
+
+  // Ajusta o canvas para ocupar toda a viewport
+  function resizeCanvas() {
+    canvas.width = window.innerWidth;
+    canvas.height = window.innerHeight;
+  }
+  window.addEventListener("resize", resizeCanvas);
+  resizeCanvas();
+
+  // Cria um array de estrelas com posições, tamanho e velocidade aleatórios
+  const stars = [];
+  const numStars = 150; // ajuste a quantidade conforme desejar
+
+  for (let i = 0; i < numStars; i++) {
+    stars.push({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      radius: Math.random() * 1.5 + 0.5,
+      speed: Math.random() * 0.5 + 0.2
+    });
+  }
+
+  // Retorna as cores de fundo e das estrelas conforme a presença da classe .dark-mode no body
+  function getThemeColors() {
+    if (document.body.classList.contains('dark-mode')) {
+      return { bgColor: '#000', starColor: '#fff' };
+    } else {
+      return { bgColor: '#FFFF', starColor: 'black' };
+    }
+  }
+
+  // Atualiza a posição das estrelas, movendo-as para baixo
+  function updateStars() {
+    for (let star of stars) {
+      star.y += star.speed;
+      if (star.y > canvas.height) {
+        star.y = 0;
+        star.x = Math.random() * canvas.width;
+      }
+    }
+  }
+
+  // Desenha o fundo e as estrelas com base nas cores do tema atual
+  function drawStars() {
+    const { bgColor, starColor } = getThemeColors();
+    
+    // Preenche o fundo
+    ctx.fillStyle = bgColor;
+    ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+    // Desenha as estrelas
+    ctx.fillStyle = starColor;
+    for (let star of stars) {
+      ctx.beginPath();
+      ctx.arc(star.x, star.y, star.radius, 0, Math.PI * 2);
+      ctx.fill();
+    }
+  }
+
+  // Loop de animação: atualiza e redesenha a tela continuamente
+  function animate() {
+    updateStars();
+    drawStars();
+    requestAnimationFrame(animate);
+  }
+  animate();
+</script>
