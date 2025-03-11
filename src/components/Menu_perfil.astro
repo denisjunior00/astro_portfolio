@@ -4,10 +4,14 @@ import ImagePerfil from './Image_perfil.astro'
 import BotaoTema from './Botao_tema.astro'
 ---
 <BotaoTema />
-<div id="theme-container">        
+<div>
     <div>
         <ImagePerfil size="small"/>
-        <t1 class="font_title" >{name_user}</t1>
+        <div class="flex flex-col">
+            <t1 class="font_title text-4xl" >{name_user}</t1>
+            <t2 class="font_title text-3xl" >Web Developer</t2>
+            <p class="text-base" >I specialize in turning complex data into actionable insights, building scalable BI solutions that drive business growth and efficiency.</p>
+        </div>        
     </div>    
     <div>
         <a href="/">Home</a>

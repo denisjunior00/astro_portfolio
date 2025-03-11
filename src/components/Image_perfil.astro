@@ -14,7 +14,7 @@ const { size = 'small' } = Astro.props;
 const dimensions =
   size === 'small' ? 'w-[176px] h-[176px]' : 'w-[288px] h-[288px]';
 ---
-<div class={`overflow-hidden rounded-full ${dimensions}`}>
+<div class={`border-8 overflow-hidden rounded-full ${dimensions}`}>
   <!-- <Image 
     src={perfil}
     alt="Perfil" 
