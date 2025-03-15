@@ -14,7 +14,9 @@ import NightSky from '../components/NightSky.astro';
 		<title>{name_user}</title>
 	</head>
 	<body class="dark-mode">
-		<NightSky/>
-		<slot />
+		<div class="wrapper max-w-5xl mx-auto px-5 box-border">
+			<NightSky/>
+			<slot />
+		</div>
 	</body>
 </html>
