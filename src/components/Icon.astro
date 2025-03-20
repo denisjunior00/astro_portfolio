@@ -1,0 +1,40 @@
+---
+import { Image } from 'astro:assets';
+import lightIcon from '../assets/linkedin_claro.svg';
+import darkIcon from '../assets/linkedin_escuro.svg';
+
+---
+<a 
+  id="themeIcon" 
+  class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 btn-icon"
+>
+  <Image id="themeImg" src={darkIcon} alt="Ícone de rede social" width={24} height={24} />
+</a>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    const imgEl = document.getElementById('themeImg');
+    if (!imgEl) return;
+
+    const darkIconPath = darkIcon.src;
+    const lightIconPath = lightIcon.src;
+
+    const updateIcon = () => {
+      imgEl.src = document.body.classList.contains('dark')
+        ? darkIconPath
+        : lightIconPath;
+    };
+
+    updateIcon();
+
+    const observer = new MutationObserver((mutationsList) => {
+      mutationsList.forEach((mutation) => {
+        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+          updateIcon();
+        }
+      });
+    });
+
+    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+  });
+</script>
