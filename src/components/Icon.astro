@@ -1,28 +1,34 @@
 ---
-import { Image } from 'astro:assets';
-import lightIcon from '../assets/linkedin_claro.svg';
-import darkIcon from '../assets/linkedin_escuro.svg';
-
+const { lightIcon, darkIcon, href } = Astro.props;
 ---
+
 <a 
   id="themeIcon" 
-  class="p-2 rounded-full bg-gray-200 dark:bg-gray-800 btn-icon"
+  class="p-2 rounded-full border hover:bg-gray-800 hover:bg-gray-200 btn-icon"
+  href={href}
+  target="_blank"
+  rel="noopener noreferrer"
 >
-  <Image id="themeImg" src={darkIcon} alt="Ícone de rede social" width={24} height={24} />
+  <svg id="themeSvg" class="w-6 h-6">
+    <use href={lightIcon} class="light-icon" />
+    <use href={darkIcon} class="dark-icon hidden" />
+  </svg>
 </a>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const imgEl = document.getElementById('themeImg');
-    if (!imgEl) return;
-
-    const darkIconPath = darkIcon.src;
-    const lightIconPath = lightIcon.src;
+    const svgEl = document.getElementById('themeSvg');
+    const lightIconEl = svgEl.querySelector('.light-icon');
+    const darkIconEl = svgEl.querySelector('.dark-icon');
 
     const updateIcon = () => {
-      imgEl.src = document.body.classList.contains('dark')
-        ? darkIconPath
-        : lightIconPath;
+      if (document.body.classList.contains('dark')) {
+        lightIconEl.classList.add('hidden');
+        darkIconEl.classList.remove('hidden');
+      } else {
+        lightIconEl.classList.remove('hidden');
+        darkIconEl.classList.add('hidden');
+      }
     };
 
     updateIcon();

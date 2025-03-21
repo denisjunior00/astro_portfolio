@@ -4,11 +4,6 @@ import ImagePerfil from './Image_perfil.astro'
 import BotaoTema from './Botao_tema.astro'
 import Icon from './Icon.astro'
 
-
-// import IconLink from './components/IconLink.astro';
-import LinkedInLightIcon from './assets/linkedin_claro.svg';
-import LinkedInDarkIcon from './assets/linkedin_escuro.svg';
-
 const lightIconLinkedin = '../assets/linkedin_claro.svg';
 const darkIconLinkedin = '../assets/linkedin_escuro.svg';
 
@@ -22,7 +17,7 @@ const darkIconLinkedin = '../assets/linkedin_escuro.svg';
             <t2 class="font_title text-3xl">Web Developer</t2>
             <p class="text-base mt-4">Desenvolvedor full stack que trabalha com a criação de soluções eficientes, integrando diversas ferramentas de IA para otimizar processos e automações.</p>
             <div class="flex gap-4 mt-4">
-                <Icon lightIcon={lightIconLinkedin} darkIcon={darkIconLinkedin} />
+                <Icon lightIcon={lightIconLinkedin} darkIcon={darkIconLinkedin} href="https://www.linkedin.com" />
                 <!-- <p>e-mail</p> -->
             </div>
         </div>
