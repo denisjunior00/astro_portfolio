@@ -1,4 +1,5 @@
 ---
+import { Image } from 'astro:assets';
 const { lightIcon, darkIcon, href } = Astro.props;
 ---
 
@@ -9,20 +10,18 @@ const { lightIcon, darkIcon, href } = Astro.props;
   target="_blank"
   rel="noopener noreferrer"
 >
-  <svg id="themeSvg" class="w-6 h-6">
-    <use href={lightIcon} class="light-icon" />
-    <use href={darkIcon} class="dark-icon hidden" />
-  </svg>
+  <Image src={darkIcon} width="30" height="30" alt="icones para contato." class="dark-icon" />
+  <Image src={lightIcon} width="30" height="30" alt="icones para contato." class="light-icon hidden" />
 </a>
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const svgEl = document.getElementById('themeSvg');
-    const lightIconEl = svgEl.querySelector('.light-icon');
-    const darkIconEl = svgEl.querySelector('.dark-icon');
+    const themeIconEl = document.getElementById('themeIcon');
+    const lightIconEl = themeIconEl.querySelector('.light-icon');
+    const darkIconEl = themeIconEl.querySelector('.dark-icon');
 
     const updateIcon = () => {
-      if (document.body.classList.contains('dark')) {
+      if (document.body.classList.contains('dark-mode')) {
         lightIconEl.classList.add('hidden');
         darkIconEl.classList.remove('hidden');
       } else {
