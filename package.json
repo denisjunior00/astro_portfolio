@@ -12,7 +12,7 @@
     "@fontsource/arvo": "^5.2.5",
     "@fontsource/pt-sans": "^5.2.5",
     "@tailwindcss/vite": "^4.0.9",
-    "astro": "^5.4.1"
+    "astro": "^5.5.4"
   },
   "devDependencies": {
     "tailwindcss": "^4.0.9"
