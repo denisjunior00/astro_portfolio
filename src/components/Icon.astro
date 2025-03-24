@@ -4,8 +4,7 @@ const { lightIcon, darkIcon, href } = Astro.props;
 ---
 
 <a 
-  id="themeIcon" 
-  class="p-2 rounded-full border hover:bg-gray-800 hover:bg-gray-200 btn-icon"
+  class="themeIcon p-2 rounded-full border btn-icon"
   href={href}
   target="_blank"
   rel="noopener noreferrer"
@@ -16,30 +15,35 @@ const { lightIcon, darkIcon, href } = Astro.props;
 
 <script is:inline>
   document.addEventListener('DOMContentLoaded', () => {
-    const themeIconEl = document.getElementById('themeIcon');
-    const lightIconEl = themeIconEl.querySelector('.light-icon');
-    const darkIconEl = themeIconEl.querySelector('.dark-icon');
+    document.querySelectorAll('.themeIcon').forEach((themeIconEl) => {
+      const lightIconEl = themeIconEl.querySelector('.light-icon');
+      const darkIconEl = themeIconEl.querySelector('.dark-icon');
 
-    const updateIcon = () => {
-      if (document.body.classList.contains('dark-mode')) {
-        lightIconEl.classList.add('hidden');
-        darkIconEl.classList.remove('hidden');
-      } else {
-        lightIconEl.classList.remove('hidden');
-        darkIconEl.classList.add('hidden');
-      }
-    };
-
-    updateIcon();
-
-    const observer = new MutationObserver((mutationsList) => {
-      mutationsList.forEach((mutation) => {
-        if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
-          updateIcon();
+      const updateIcon = () => {
+        if (document.body.classList.contains('dark-mode')) {
+          lightIconEl.classList.add('hidden');
+          darkIconEl.classList.remove('hidden');
+          themeIconEl.classList.add('hover:bg-gray-800');
+          themeIconEl.classList.remove('hover:bg-gray-200');
+        } else {
+          lightIconEl.classList.remove('hidden');
+          darkIconEl.classList.add('hidden');
+          themeIconEl.classList.add('hover:bg-gray-200');
+          themeIconEl.classList.remove('hover:bg-gray-800');
         }
-      });
-    });
+      };
 
-    observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+      updateIcon();
+
+      const observer = new MutationObserver((mutationsList) => {
+        mutationsList.forEach((mutation) => {
+          if (mutation.type === 'attributes' && mutation.attributeName === 'class') {
+            updateIcon();
+          }
+        });
+      });
+
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class'] });
+    });
   });
 </script>
