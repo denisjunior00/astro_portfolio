@@ -70,10 +70,80 @@
     }
   }
 
+  // Configuração da estrela cadente
+  let shootingStar = null;
+  let shootingStarTimeout;
+
+  function createShootingStar() {
+    shootingStar = {
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height / 2, // aparece na metade superior
+      radius: Math.random() * 2 + 1.5, // ligeiramente maior que as outras estrelas
+      length: Math.random() * 100 + 50,
+      speedX: Math.random() * 4 + 2,
+      speedY: Math.random() * 4 + 2,
+      opacity: 1
+    };
+  }
+
+  function drawShootingStar() {
+    if (!shootingStar) return;
+
+    const { x, y, radius, length, speedX, speedY, opacity } = shootingStar;
+
+    // Desenha a cauda da estrela cadente
+    const tailX = x - length * (speedX / (speedX + speedY));
+    const tailY = y - length * (speedY / (speedX + speedY));
+
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    const gradient = ctx.createLinearGradient(x, y, tailX, tailY);
+    gradient.addColorStop(0, getThemeColors().starColor);
+    gradient.addColorStop(1, 'rgba(255, 255, 255, 0)');
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.moveTo(x, y);
+    ctx.lineTo(tailX, tailY);
+    ctx.lineWidth = radius;
+    ctx.strokeStyle = gradient;
+    ctx.stroke();
+    ctx.restore();
+
+    // Desenha o corpo da estrela cadente
+    ctx.save();
+    ctx.globalAlpha = opacity;
+    ctx.fillStyle = getThemeColors().starColor;
+    ctx.beginPath();
+    ctx.arc(x, y, radius, 0, Math.PI * 2);
+    ctx.fill();
+    ctx.restore();
+
+    // Atualiza a posição e opacidade da estrela cadente
+    shootingStar.x += speedX;
+    shootingStar.y += speedY;
+    shootingStar.opacity -= 0.02;
+
+    // Remove a estrela cadente quando desaparecer
+    if (shootingStar.opacity <= 0) {
+      shootingStar = null;
+    }
+  }
+
+  function startShootingStarCycle() {
+    createShootingStar();
+    shootingStarTimeout = setTimeout(() => {
+      startShootingStarCycle();
+    }, 4000); // reaparece a cada 4 segundos
+  }
+
+  // Inicia o ciclo da estrela cadente
+  startShootingStarCycle();
+
   // Loop de animação: atualiza e redesenha a tela continuamente
   function animate() {
     updateStars();
     drawStars();
+    drawShootingStar(); // desenha a estrela cadente
     requestAnimationFrame(animate);
   }
   animate();
