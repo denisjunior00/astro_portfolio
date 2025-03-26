@@ -3,6 +3,8 @@ import {name_user} from '../constants'
 import ImagePerfil from './Image_perfil.astro'
 import BotaoTema from './Botao_tema.astro'
 import Icon from './Icon.astro'
+import Skill from './Skill.astro';
+
 import { Image } from 'astro:assets';
 import lightIconLinkedin from '../assets/linkedin_claro.svg';
 import darkIconLinkedin from '../assets/linkedin_escuro.svg';
@@ -12,7 +14,7 @@ import lightEmail from '../assets/email_claro.svg';
 import darkEmail from '../assets/email_escuro.svg';
 
 ---
-<BotaoTema />
+<!-- <BotaoTema /> -->
 <container class="w-full max-w-5xl mx-auto px-5 box-border flex flex-col items-center justify-center min-h-screen">
     <div class="flex flex-col items-center">
         <ImagePerfil size="small"/>
@@ -24,7 +26,19 @@ import darkEmail from '../assets/email_escuro.svg';
                 <Icon lightIcon={lightIconLinkedin} darkIcon={darkIconLinkedin} href="https://www.linkedin.com" />
                 <Icon lightIcon={lightIconGithub} darkIcon={darkIconGithub} href="https://github.com/denisjunior00" />                
                 <Icon lightIcon={lightEmail} darkIcon={darkEmail} href="https://mail.google.com/mail/?view=cm&fs=1&to=contato@denisjr.dev.br" />
-            </div>            
+            </div>
+            <div class="flex gap-4 mt-4 flex-wrap">
+                <Skill nome="AI Integration" />
+                <Skill nome="JavaScript" />
+                <Skill nome="PHP" />
+                <Skill nome="React JS" />
+                <Skill nome="TypeScript" />
+                <Skill nome="Astro" />
+                <Skill nome="Figma" />
+                <Skill nome="MySQL" />
+                <Skill nome="Next JS" />
+                <Skill nome="N8N" />
+            </div>
         </div>
     </div>
 </container>
