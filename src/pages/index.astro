@@ -2,13 +2,33 @@
 import Menu_perfil from '../components/Menu_perfil.astro';
 import Layout from '../layouts/Layout.astro';
 import Rodape from '../components/Rodape.astro';
+import Quadro from '../components/Quadro_experiencia.astro';
 ---
 
 <Layout>
 	<main>
 		<Menu_perfil/>
-		<h2 class="text-4xl font-bold text-center">Experiencia de Trabalho</h2>
+		<h2 class="text-4xl mb-15 font-bold text-center">Experiencia de Trabalho</h2>
+		
 
+		<div class="flex flex-col gap-4 max-w-5xl mx-auto px-5">
+			<Quadro 
+			titulo="titulo"
+			ano="2022"
+			descricao="descricao"
+			/>
+			<Quadro 
+			titulo="titulo"
+			ano="2022"
+			descricao="descricao"
+			/>
+			<Quadro 
+			titulo="titulo"
+			ano="2022"
+			descricao="descricao"
+			/>
+
+		</div>
 
 		<Rodape/>
 	</main>	

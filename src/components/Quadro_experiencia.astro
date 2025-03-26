@@ -1,0 +1,36 @@
+---
+const { titulo, ano, descricao } = Astro.props;
+---
+
+<div 
+  class="quadro-experiencia border border-gray-300 dark:border-gray-600 rounded-lg p-4 cursor-pointer transition-all duration-500 bg-white dark:bg-black/50"
+>
+  <div class="flex justify-between items-center">
+    <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">{titulo}</h3>
+    <span class="text-sm text-gray-600 dark:text-gray-400">{ano}</span>
+  </div>
+  <div 
+    class="descricao overflow-hidden transition-all duration-500 max-h-0 opacity-0"
+  >
+    <p class="mt-2 text-gray-600 dark:text-gray-400">{descricao}</p>
+  </div>
+</div>
+
+<script is:inline>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.quadro-experiencia').forEach((element) => {
+      element.addEventListener('click', () => {
+        const descricao = element.querySelector('.descricao');
+        const isOpen = descricao.classList.contains('max-h-96');
+
+        if (isOpen) {
+          descricao.classList.remove('max-h-96', 'opacity-100');
+          descricao.classList.add('max-h-0', 'opacity-0');
+        } else {
+          descricao.classList.remove('max-h-0', 'opacity-0');
+          descricao.classList.add('max-h-96', 'opacity-100');
+        }
+      });
+    });
+  });
+</script>
