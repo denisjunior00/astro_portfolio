@@ -7,12 +7,14 @@ const { titulo, ano, descricao } = Astro.props;
 >
   <div class="flex justify-between items-center">
     <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">{titulo}</h3>
-    <span class="text-sm text-gray-600 dark:text-gray-400">{ano}</span>
+    <span class="text-sm text-gray-600 dark:text-gray-400 p-1">{ano}</span>
   </div>
   <div 
     class="descricao overflow-hidden transition-all duration-500 max-h-0 opacity-0"
   >
-    <p class="mt-2 text-gray-600 dark:text-gray-400">{descricao}</p>
+    <p class="mt-2 text-gray-600 dark:text-gray-400 w-full text-center leading-relaxed break-words">
+      {descricao}
+    </p>
   </div>
 </div>
 
@@ -21,14 +23,14 @@ const { titulo, ano, descricao } = Astro.props;
     document.querySelectorAll('.quadro-experiencia').forEach((element) => {
       element.addEventListener('click', () => {
         const descricao = element.querySelector('.descricao');
-        const isOpen = descricao.classList.contains('max-h-96');
+        const isOpen = descricao.classList.contains('max-h-screen');
 
         if (isOpen) {
-          descricao.classList.remove('max-h-96', 'opacity-100');
+          descricao.classList.remove('max-h-screen', 'opacity-100');
           descricao.classList.add('max-h-0', 'opacity-0');
         } else {
           descricao.classList.remove('max-h-0', 'opacity-0');
-          descricao.classList.add('max-h-96', 'opacity-100');
+          descricao.classList.add('max-h-screen', 'opacity-100');
         }
       });
     });
