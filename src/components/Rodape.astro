@@ -1,0 +1,24 @@
+---
+import Icon from './Icon.astro';
+
+import lightIconLinkedin from '../assets/linkedin_claro.svg';
+import darkIconLinkedin from '../assets/linkedin_escuro.svg';
+import lightIconGithub from '../assets/github_claro.svg';
+import darkIconGithub from '../assets/github_escuro.svg';
+import lightEmail from '../assets/email_claro.svg';
+import darkEmail from '../assets/email_escuro.svg';
+
+---
+
+<footer class="w-full border-t border-gray-300 dark:border-gray-600 py-8">
+  <div class="max-w-5xl mx-auto px-5 flex flex-col items-center gap-6">
+    <div class="flex gap-4">
+        <Icon lightIcon={lightIconLinkedin} darkIcon={darkIconLinkedin} href="https://www.linkedin.com" />
+        <Icon lightIcon={lightIconGithub} darkIcon={darkIconGithub} href="https://github.com/denisjunior00" />                
+        <Icon lightIcon={lightEmail} darkIcon={darkEmail} href="https://mail.google.com/mail/?view=cm&fs=1&to=contato@denisjr.dev.br" />
+    </div>
+    <p class="text-center text-sm text-gray-600 dark:text-gray-400 italic">
+      "De grão em grão, eu chego em um milhão!."
+    </p>
+  </div>
+</footer>
