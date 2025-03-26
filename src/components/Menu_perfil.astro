@@ -3,11 +3,13 @@ import {name_user} from '../constants'
 import ImagePerfil from './Image_perfil.astro'
 import BotaoTema from './Botao_tema.astro'
 import Icon from './Icon.astro'
-
+import { Image } from 'astro:assets';
 import lightIconLinkedin from '../assets/linkedin_claro.svg';
 import darkIconLinkedin from '../assets/linkedin_escuro.svg';
 import lightIconGithub from '../assets/github_claro.svg';
 import darkIconGithub from '../assets/github_escuro.svg';
+import lightEmail from '../assets/email_claro.svg';
+import darkEmail from '../assets/email_escuro.svg';
 
 ---
 <BotaoTema />
@@ -21,7 +23,8 @@ import darkIconGithub from '../assets/github_escuro.svg';
             <div class="flex gap-4 mt-4">
                 <Icon lightIcon={lightIconLinkedin} darkIcon={darkIconLinkedin} href="https://www.linkedin.com" />
                 <Icon lightIcon={lightIconGithub} darkIcon={darkIconGithub} href="https://github.com/denisjunior00" />                
-            </div>
+                <Icon lightIcon={lightEmail} darkIcon={darkEmail} href="https://mail.google.com/mail/?view=cm&fs=1&to=contato@denisjr.dev.br" />
+            </div>            
         </div>
     </div>
 </container>
