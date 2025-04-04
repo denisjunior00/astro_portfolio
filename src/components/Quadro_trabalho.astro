@@ -1,0 +1,50 @@
+---
+const { title, description, imagensLista } = Astro.props;
+
+import Image from "astro/components/Image.astro";
+import Carousel from "./Carousel.astro";
+---
+
+<div 
+  class="quadro-trabalho border border-gray-300 dark:border-gray-600 rounded-lg p-4 transition-all duration-500 bg-white dark:bg-black/50"
+>
+  <div class="flex justify-between items-center cursor-pointer trabalho-header" id="trabalho-header">
+    <h2 class="text-lg font-bold text-gray-800 dark:text-gray-200">{title}</h2>
+    <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 transform transition-transform duration-300 chevron-icon" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+      <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7" />
+    </svg>
+  </div>
+  
+  <div 
+    class="trabalho-content overflow-hidden transition-all duration-500 max-h-0 opacity-0"
+  >
+    {imagensLista?.length > 0 && (
+      <div class="mb-4">
+        <Carousel images={imagensLista} />
+      </div>
+    )}
+    
+    <div>
+      <p class="text-gray-600 dark:text-gray-400">{description}</p>
+    </div>
+  </div>
+</div>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    document.querySelectorAll('.quadro-trabalho').forEach((element) => {
+      element.querySelector('.trabalho-header').addEventListener('click', () => {
+        const content = element.querySelector('.trabalho-content');
+        const isOpen = content.classList.contains('max-h-screen');
+
+        if (isOpen) {
+          content.classList.remove('max-h-screen', 'opacity-100');
+          content.classList.add('max-h-0', 'opacity-0');
+        } else {
+          content.classList.remove('max-h-0', 'opacity-0');
+          content.classList.add('max-h-screen', 'opacity-100');
+        }
+      });
+    });
+  });
+</script>

@@ -3,6 +3,19 @@ import Menu_perfil from '../components/Menu_perfil.astro';
 import Layout from '../layouts/Layout.astro';
 import Rodape from '../components/Rodape.astro';
 import Quadro from '../components/Quadro_experiencia.astro';
+
+import Quadro_trabalho from '../components/Quadro_trabalho.astro';
+
+import Carousel from '../components/Carousel.astro';
+import robo from '../images/robo.gif?url';
+import foguete from '../images/foguete.png?url';
+
+
+// const imageList = [
+// 	robo,
+// 	foguete
+// ];
+
 ---
 
 <Layout>
@@ -21,12 +34,19 @@ import Quadro from '../components/Quadro_experiencia.astro';
 			ano="2022 - Atualmente"
 			descricao="Atuo no desenvolvimento da plataforma InfoImóveis, contribuindo para a implementação de novas funcionalidades, otimização do sistema e integrações com inteligência artificial. Trabalho com Next.js, React, JavaScript, PHP e SQL, desenvolvendo soluções para o front-end, back-end e banco de dados. Entre minhas contribuições, destaco a criação de um chatbot com IA, projetado para automatizar o atendimento ao cliente e melhorar a experiência do usuário. Além disso, colaboro na integração de IA para otimização de processos, bem como na melhoria da performance do sistema e na resolução de desafios técnicos, sempre priorizando usabilidade, escalabilidade e segurança."
 			/>
-			<Quadro 
+			<Quadro
 			titulo="Br Hospedagem"
 			ano="2022 - Atualmente"
 			descricao="Suporte dedicado aos clientes para garantir a máxima eficiência e segurança tanto na hospedagem de sites quanto na de emails. Nosso serviço de hospedagem de sites proporciona desempenho robusto, backups regulares e proteção contra ameaças, aliado a uma interface intuitiva que facilita o gerenciamento dos conteúdos online. No que diz respeito à hospedagem de emails, oferecemos soluções confiáveis que asseguram a continuidade da comunicação, com recursos avançados como filtros antispam e suporte para múltiplas contas, permitindo que os usuários mantenham uma comunicação organizada e segura. Meu papel é orientar e solucionar dúvidas, garantindo que os clientes tirem o máximo proveito dos serviços e tenham uma experiência completa e satisfatória na plataforma."
 			/>
 		</div>
+
+		<div class="flex flex-col gap-4  mx-auto mt-15">
+			<Quadro_trabalho 
+				title="Trabalhos"
+				description="Aqui estão alguns dos meus trabalhos, que demonstram minha experiência e habilidades em desenvolvimento web. Cada projeto reflete meu compromisso com a qualidade e a inovação."
+			/>
+		</div>		
 		
 	</main>	
 	<Rodape/>
