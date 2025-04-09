@@ -1,14 +1,15 @@
 ---
+import { Image } from 'astro:assets';
 import robo from '../images/robo.gif';
+import foguete from '../images/foguete.png';
 
 interface Props {
-  slides?: string[];
+  // O array de slides deverá ser composto pelas importações estáticas (ex.: robo, foguete)
+  slides?: any[];
 }
 
-const defaultSlides = [
-  "./images/robo.gif"
-];
-
+// Define um array padrão com as imagens importadas
+const defaultSlides = [robo];
 const { slides = defaultSlides } = Astro.props;
 ---
 
@@ -17,10 +18,10 @@ const { slides = defaultSlides } = Astro.props;
   <div class="relative h-56 overflow-hidden rounded-lg md:h-96">
     {slides.map((slide, index) => (
       <div class="hidden duration-700 ease-in-out" data-carousel-item>
-        <img
+        <Image
           src={slide}
-          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
           alt={`Slide ${index + 1}`}
+          class="absolute block w-full -translate-x-1/2 -translate-y-1/2 top-1/2 left-1/2"
         />
       </div>
     ))}
@@ -58,6 +59,7 @@ const { slides = defaultSlides } = Astro.props;
       <span class="hidden">Anterior</span>
     </span>
   </button>
+
   <button
     type="button"
     class="absolute top-0 right-0 z-30 flex items-center justify-center h-full px-4 cursor-pointer group focus:outline-none"

@@ -2,20 +2,13 @@
 import Layout from '../layouts/Layout.astro';
 import Carousel from '../components/Carousel.astro';
 
-import robo from '../images/robo.gif?url';
-import foguete from '../images/foguete.png?url';
+import robo from '../images/robo.gif';
+import foguete from '../images/foguete.png';
 
-const mySlides = [
-  "../images/robo.gif?url",
-  "../images/robo.gif?url",
-  "../images/robo.gif?url",
-];
-
-console.log(mySlides)
-
-
+// Defina o array de slides com as importações
+const mySlides = [robo, foguete, robo];
 ---
 
 <Layout>
-    <Carousel slides={mySlides} />
+  <Carousel slides={mySlides} />
 </Layout>

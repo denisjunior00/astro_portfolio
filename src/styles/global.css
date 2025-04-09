@@ -1,6 +1,5 @@
+@import "flowbite/src/themes/default";
 @import "tailwindcss";
-/* @import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=PT+Sans:wght@400;700&display=swap');
-@import url('https://fonts.googleapis.com/css2?family=Arvo:wght@400;700&family=PT+Sans:wght@400;700&display=swap'); */
 
 body {
   font-family: 'PT Sans', sans-serif;
