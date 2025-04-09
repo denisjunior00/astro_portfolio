@@ -12,12 +12,14 @@ import NightSky from '../components/NightSky.astro';
 		<!-- <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<meta name="generator" content={Astro.generator} /> -->
 		<title>{name_user}</title>
+
+		<script defer src="https://unpkg.com/flowbite@1.6.0/dist/flowbite.bundle.js"></script>
 	</head>
 	<body class="dark-mode">
 	<div class="wrapper max-w-7xl mx-auto px-5 box-border">
 		<NightSky/>
 		<slot />
 	</div>
-	<script is:inline src="https://cdn.jsdelivr.net/npm/flowbite@2.5.2/dist/flowbite.min.js"></script>
+	
 	</body>
 </html>

@@ -1,0 +1,21 @@
+---
+import Layout from '../layouts/Layout.astro';
+import Carousel from '../components/Carousel.astro';
+
+import robo from '../images/robo.gif?url';
+import foguete from '../images/foguete.png?url';
+
+const mySlides = [
+  "../images/robo.gif?url",
+  "../images/robo.gif?url",
+  "../images/robo.gif?url",
+];
+
+console.log(mySlides)
+
+
+---
+
+<Layout>
+    <Carousel slides={mySlides} />
+</Layout>
