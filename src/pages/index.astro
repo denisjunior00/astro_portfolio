@@ -10,6 +10,9 @@ import foguete from '../images/foguete.png';
 
 const mySlides = [foguete, robo];
 
+
+const descricaoChatBot = "Chatbot inteligente de autoatendimento para a plataforma InfoImóveis, integrando a inteligência artificial da OpenAI ao fluxo automatizado do N8N, com suporte via Chatwoot e integração com a Evolution API. Para isso, criei uma API interna responsável por consultar e consumir os dados dos clientes diretamente no site, permitindo respostas automáticas precisas e personalizadas. Além de interagir com os usuários de forma contextualizada, o chatbot também realiza o envio automatizado de boletos, otimizando ainda mais o atendimento e reduzindo a necessidade de intervenção humana. Essa solução proporcionou maior agilidade, eficiência e escalabilidade nos processos de suporte da plataforma."
+
 ---
 
 <Layout>
@@ -39,16 +42,13 @@ const mySlides = [foguete, robo];
 
 		<div class="flex flex-col gap-7  mx-auto ">
 
-			<Quadro_tarefa titulo="blalba" skills={[
-				'HTML',
-				'CSS',
+			<Quadro_tarefa titulo="Chatbot de Autoatendimento com IA" skills={[
+				'N8N',
+				'PHP',
+				'AI Integration',
 				'JavaScript',
-				'React',
-				'Node.js',
-				'Tailwind CSS',
-				'Astro',
-				'TypeScript',
-			  ]} descricao="descricao" listaImagens={mySlides} />
+				'POSTGRES'
+			  ]} descricao={descricaoChatBot} listaImagens={mySlides} />
 	
 			<Quadro_tarefa titulo="blalba" skills={[
 				'HTML',
