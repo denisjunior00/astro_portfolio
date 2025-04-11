@@ -5,44 +5,22 @@ const { titulo, skills, descricao, listaImagens } = Astro.props;
 ---
 
 <div 
-  class="quadro-experiencia border border-gray-300 dark:border-gray-600 rounded-lg p-4 transition-all duration-500 bg-white dark:bg-black/50"
+  class="border border-gray-300 dark:border-gray-600 rounded-lg p-4 bg-white dark:bg-black/50"
 >
-  <div class="header flex justify-between items-center cursor-pointer">
+  <div class="flex justify-between items-center">
     <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">{titulo}</h3>
-    <div class="flex gap-2">
-      { skills && skills.length ?  skills.map((skill: string, index: any) => (
-        <Skill nome={skill} />
-      )) : '' }
-    </div>
   </div>
   <div 
-    class="descricao overflow-hidden transition-all duration-500 max-h-0 opacity-0"
-  >
-    <div class="mt-2 text-gray-600 dark:text-gray-400 w-full text-center leading-relaxed list-disc list-inside">
+    class="descricao"
+  >    
+    <div class="mt-2 text-gray-600 dark:text-gray-400 w-full text-center">
       <Carousel slides={listaImagens} />
+      <div class="flex gap-3 w-full justify-center my-5 flex-wrap">
+        { skills && skills.length ? skills.map((skill: string, index: number) => (
+          <Skill nome={skill} />
+        )) : '' }
+      </div>
       <div>{descricao}</div>
     </div>
   </div>
 </div>
-
-<script is:inline>
-  (function() {
-    // Usa o elemento imediatamente anterior (neste caso, o container do componente)
-    const component = document.currentScript.previousElementSibling;
-    if (!component) return;
-    
-    const header = component.querySelector('.header');
-    const descricao = component.querySelector('.descricao');
-    
-    header.addEventListener('click', () => {
-      const isOpen = descricao.classList.contains('max-h-screen');
-      if (isOpen) {
-        descricao.classList.remove('max-h-screen', 'opacity-100');
-        descricao.classList.add('max-h-0', 'opacity-0');
-      } else {
-        descricao.classList.remove('max-h-0', 'opacity-0');
-        descricao.classList.add('max-h-screen', 'opacity-100');
-      }
-    });
-  })();
-</script>

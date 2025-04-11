@@ -3,22 +3,19 @@ import Menu_perfil from '../components/Menu_perfil.astro';
 import Layout from '../layouts/Layout.astro';
 import Rodape from '../components/Rodape.astro';
 import Quadro from '../components/Quadro_experiencia.astro';
+import Quadro_tarefa from '../components/Quadro_tarefa.astro';
 
-import robo from '../images/robo.gif?url';
-import foguete from '../images/foguete.png?url';
+import robo from '../images/robo.gif';
+import foguete from '../images/foguete.png';
 
-
-// const imageList = [
-// 	robo,
-// 	foguete
-// ];
+const mySlides = [foguete, robo];
 
 ---
 
 <Layout>
 	<main>
 		<Menu_perfil/>
-		<h2 class="text-4xl mb-15 font-bold text-center">Experiencia</h2>
+		<h2 class="text-4xl mb-15 font-bold text-center">XP</h2>
 
 		<div class="flex flex-col gap-4  mx-auto ">
 			<Quadro 
@@ -38,7 +35,33 @@ import foguete from '../images/foguete.png?url';
 			/>
 		</div>
 
-		
+		<h2 class="text-4xl my-15 font-bold text-center">Same Works</h2>
+
+		<div class="flex flex-col gap-7  mx-auto ">
+
+			<Quadro_tarefa titulo="blalba" skills={[
+				'HTML',
+				'CSS',
+				'JavaScript',
+				'React',
+				'Node.js',
+				'Tailwind CSS',
+				'Astro',
+				'TypeScript',
+			  ]} descricao="descricao" listaImagens={mySlides} />
+	
+			<Quadro_tarefa titulo="blalba" skills={[
+				'HTML',
+				'CSS',
+				'JavaScript',
+				'React',
+				'Node.js',
+				'Tailwind CSS',
+				'Astro',
+				'TypeScript',
+			  ]} descricao="descricao" listaImagens={mySlides} />
+
+		</div>		
 		
 	</main>	
 	<Rodape/>
