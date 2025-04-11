@@ -8,12 +8,26 @@ import foguete from '../images/foguete.png';
 
 // Defina o array de slides com as importações
 const mySlides = [foguete, foguete, foguete];
+
+const mySkills = [
+  'HTML',
+  'CSS',
+  'JavaScript',
+  'React',
+  'Node.js',
+  'Tailwind CSS',
+  'Astro',
+  'TypeScript',
+];
+
 ---
 
 <Layout>
   <!-- <Carousel slides={mySlides} /> -->
 
-    <Quadro_tarefa titulo="blalba" />
+    <Quadro_tarefa titulo="blalba" skills={mySkills} descricao="descricao" listaImagens={mySlides} />
+
+    <!-- <Quadro_tarefa titulo="blalba" skills={mySkills} descricao="descricao" listaImagens={mySlides} /> -->
 
 
 </Layout>
