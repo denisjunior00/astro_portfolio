@@ -7,8 +7,11 @@ import Quadro_tarefa from '../components/Quadro_tarefa.astro';
 
 import robo from '../images/robo.gif';
 import foguete from '../images/foguete.png';
+import n8n from '../images/n8n.jpg';
 
 const mySlides = [foguete, robo];
+
+const SlideChatBot = [n8n]
 
 
 const descricaoChatBot = "Chatbot inteligente de autoatendimento para a plataforma InfoImóveis, integrando a inteligência artificial da OpenAI ao fluxo automatizado do N8N, com suporte via Chatwoot e integração com a Evolution API. Para isso, criei uma API interna responsável por consultar e consumir os dados dos clientes diretamente no site, permitindo respostas automáticas precisas e personalizadas. Além de interagir com os usuários de forma contextualizada, o chatbot também realiza o envio automatizado de boletos, otimizando ainda mais o atendimento e reduzindo a necessidade de intervenção humana. Essa solução proporcionou maior agilidade, eficiência e escalabilidade nos processos de suporte da plataforma."
@@ -48,7 +51,7 @@ const descricaoChatBot = "Chatbot inteligente de autoatendimento para a platafor
 				'AI Integration',
 				'JavaScript',
 				'POSTGRES'
-			  ]} descricao={descricaoChatBot} listaImagens={mySlides} />
+			  ]} descricao={descricaoChatBot} listaImagens={SlideChatBot} />
 	
 			<Quadro_tarefa titulo="blalba" skills={[
 				'HTML',
