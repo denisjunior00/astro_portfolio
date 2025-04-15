@@ -7,15 +7,18 @@ import Quadro_tarefa from '../components/Quadro_tarefa.astro';
 
 import robo from '../images/robo.gif';
 import foguete from '../images/foguete.png';
-import n8n from '../images/n8n.jpg';
+import n8nfluxo from '../images/n8nfluxo.jpg';
+import n8nagent from '../images/n8nagent.jpg';
+import hotsiteBusca from '../images/hotsiteBusca.jpg'
+import hotsiteHome from '../images/hotsiteHome.jpg'
+import hotsiteNoticias from '../images/hotsiteNoticias.jpg'
+import hotsitePedidos from '../images/hotsitePedidos.jpg'
 
-const mySlides = [foguete, robo];
+const slideHotSite = [hotsiteHome, hotsiteBusca, hotsiteNoticias, hotsitePedidos]
 
-const SlideChatBot = [n8n]
-
-
+const SlideChatBot = [n8nfluxo, n8nagent]
 const descricaoChatBot = "Chatbot inteligente de autoatendimento para a plataforma InfoImóveis, integrando a inteligência artificial da OpenAI ao fluxo automatizado do N8N, com suporte via Chatwoot e integração com a Evolution API. Para isso, criei uma API interna responsável por consultar e consumir os dados dos clientes diretamente no site, permitindo respostas automáticas precisas e personalizadas. Além de interagir com os usuários de forma contextualizada, o chatbot também realiza o envio automatizado de boletos, otimizando ainda mais o atendimento e reduzindo a necessidade de intervenção humana. Essa solução proporcionou maior agilidade, eficiência e escalabilidade nos processos de suporte da plataforma."
-
+const descricaoHotsite = ""
 ---
 
 <Layout>
@@ -53,16 +56,12 @@ const descricaoChatBot = "Chatbot inteligente de autoatendimento para a platafor
 				'POSTGRES'
 			  ]} descricao={descricaoChatBot} listaImagens={SlideChatBot} />
 	
-			<Quadro_tarefa titulo="blalba" skills={[
-				'HTML',
-				'CSS',
+			<Quadro_tarefa titulo="Site modelo para lojas da plataforma" skills={[
+				'Next js',
 				'JavaScript',
-				'React',
-				'Node.js',
-				'Tailwind CSS',
-				'Astro',
-				'TypeScript',
-			  ]} descricao="descricao" listaImagens={mySlides} />
+				'CSS',
+				'FIGMA'
+			  ]} descricao="descricao" listaImagens={slideHotSite} />
 
 		</div>		
 		

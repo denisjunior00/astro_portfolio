@@ -15,7 +15,7 @@ const { titulo, skills, descricao, listaImagens } = Astro.props;
   >    
     <div class="mt-2 text-gray-600 dark:text-gray-400 w-full text-center">
       <Carousel slides={listaImagens} />
-      <div class="flex gap-3 w-full justify-center my-5 flex-wrap">
+      <div class="flex gap-3 w-full justify-center my-5 flex-wrap align-center justify-center">
         { skills && skills.length ? skills.map((skill: string, index: number) => (
           <Skill nome={skill} />
         )) : '' }
