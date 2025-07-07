@@ -3,18 +3,18 @@ const { titulo, ano, descricao } = Astro.props;
 ---
 
 <div 
-  class="quadro-experiencia border border-gray-300 dark:border-gray-600 rounded-lg p-4 cursor-pointer transition-all duration-500 bg-white dark:bg-black/50"
+  class="quadro-experiencia border border-gray-600 rounded-lg p-4 cursor-pointer transition-all duration-500 bg-gray-900 w-full"
 >
   <div class="flex justify-between items-center">
-    <h3 class="text-lg font-bold text-gray-800 dark:text-gray-200">{titulo}</h3>
-    <span class="text-sm text-gray-600 dark:text-gray-400 p-1">{ano}</span>
+    <h3 class="text-lg font-bold text-gray-200">{titulo}</h3>
+    <span class="text-sm text-gray-400 p-1">{ano}</span>
   </div>
   <div 
     class="descricao overflow-hidden transition-all duration-500 max-h-0 opacity-0"
   >
-    <ul class="mt-2 text-gray-600 dark:text-gray-400 w-full text-left leading-relaxed list-disc list-inside">
+    <ul class="mt-2 text-gray-400 w-full text-left leading-relaxed list-disc list-inside">
       {descricao.split('. ').map((item:string) => (
-        <li>{item.trim()}.</li>
+        <li>{item.trim()}</li>
       ))}
     </ul>
   </div>
